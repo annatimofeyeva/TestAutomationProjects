@@ -1,9 +1,19 @@
-import org.testng.annotations.Test;
-
 public class FoorLoop {
     public static void main(String[] args) {
-        System.out.println("Test");
-        System.out.println("Test1");
-        System.out.println("Test2");
+        // sout - System.out.println();
+
+        // Printing odd numbers:
+        for (int i = 0; i <= 10; i++) {
+            if (i % 2 == 0) {
+                System.out.println(i + " = "+ "even");
+            }else
+                System.out.println(i + " = " + "odd");
+        }
+
+        // Printing even number:
+        System.out.println("Even numbers: ");
+        for (int i = 0; i <= 10; i = i + 2) {
+            System.out.println(i);
+        }
     }
 }
