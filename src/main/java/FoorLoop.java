@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class FoorLoop {
     public static void main(String[] args) {
 
@@ -45,7 +43,7 @@ public class FoorLoop {
                     break;
                 }
             }
-                if (isPrime) {
+            if (isPrime) {
                 System.out.println("Prime number: " + i);
             }
         }
@@ -62,7 +60,5 @@ public class FoorLoop {
             n2 = n;
             n = n1 + n2;
         }
-
-        System.out.println("Test1");
     }// end of main
 } // end of class
