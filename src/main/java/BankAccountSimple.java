@@ -9,18 +9,37 @@ public class BankAccountSimple {
         this.balance = balance;
         this.customerName = customerName;
     }
-    public void withDraw(double amount) {
-        balance = balance - amount;
+
+    public int getAccountNumber() {
+        return accountNumber;
     }
-    public double deposit(double amount) {
-        balance = balance + amount;
-        return amount;
-    }
-    public double getBalance(){
+
+    public double getBalance() {
         return balance;
     }
 
-    public String getCustomerName(){
+    public String getCustomerName() {
         return customerName;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public void withDraw(double amount) {
+        balance = balance - amount;
+    }
+
+    public double deposit(double amount) {
+        balance = balance + amount;
+        return amount;
     }
 }
