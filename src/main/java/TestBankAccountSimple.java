@@ -34,7 +34,9 @@ public class TestBankAccountSimple {
         accounts[8] = account9;
         accounts[9] = account10;
 
-        System.out.println("Fourth account(account3) balance is: " + accounts[2].getBalance());
+        System.out.println("Fourth account(account3) balance is: " + accounts[3].getBalance());
+        System.out.println("Forth accountHolder name is : " + accounts[3].getCustomerName());
+        System.out.println("Forth account number is: " + accounts[3].getAccountNumber());
 
         //find all accounts with balance more then 5000
 
