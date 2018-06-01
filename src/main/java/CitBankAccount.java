@@ -11,7 +11,7 @@ public class CitBankAccount extends BankAccountSimple {
         CitBankAccount account4 = new CitBankAccount(1111, 5000, "Emily");
         CitBankAccount account5 = new CitBankAccount(1111, 6000, "Alena");
 
-        CitBankAccount[] accounts= new CitBankAccount[5];
+        CitBankAccount[] accounts = new CitBankAccount[5];
 
         accounts[0] = account1;
         accounts[1] = account2;
@@ -22,10 +22,16 @@ public class CitBankAccount extends BankAccountSimple {
         String customer3name = accounts[3].getCustomerName();
         System.out.println(customer3name);
 
+        double totalsum = 0.00;
+
         for (int i = 0; i < accounts.length; i++) {
 //            accounts[i].getBalance();
             double x = accounts[i].getBalance();
-            System.out.println(x);
+//            System.out.println(x);
+            totalsum = totalsum + x;
+            if (i >= 4) {
+                System.out.println(totalsum);
+            }
         }
     }
 }
