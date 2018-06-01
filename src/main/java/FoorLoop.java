@@ -5,8 +5,8 @@ public class FoorLoop {
         // Printing odd numbers:
 
         for (int i = 0; i <= 10; i++) {
-            int x = i%2;   // x = reminder
-            if(x == 1) {
+            int x = i % 2;   // x = reminder
+            if (x == 1) {
                 System.out.println("Odd number: " + i);
             }
 //
@@ -30,7 +30,25 @@ public class FoorLoop {
 //        }
 
         // Printing Prime numbers. Prime numbers - which are dividible only by 1 and itself
+        // Prime numbers always stars from 2
 
+        // 1. Take some number
+        // 2. Divide number from 2 to (self -1)
+        // 3. If not divisible - then prime
+        // 4.
 
+        for (int i = 2; i <= 50; i++) {
+            boolean isPrime = true;
+            for (int j = 2; j < i/2; j++) {
+                int x = i % j;
+                if (x == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                System.out.println("Prime number: " + i);
+            }
+        }
     }
 }
