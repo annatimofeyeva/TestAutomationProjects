@@ -20,18 +20,27 @@ public class CitBankAccount extends BankAccountSimple {
         accounts[4] = account5;
 
         String customer3name = accounts[3].getCustomerName();
-        System.out.println(customer3name);
+        System.out.println("Customer3 name is: " + customer3name);
 
         double totalsum = 0.00;
 
         for (int i = 0; i < accounts.length; i++) {
-//            accounts[i].getBalance();
             double x = accounts[i].getBalance();
-//            System.out.println(x);
             totalsum = totalsum + x;
             if (i >= 4) {
-                System.out.println(totalsum);
+                System.out.println("Total balane of all accounts is: " + totalsum);
             }
         }
+        account1.withDraw(1000);
+        double y = account1.getBalance();
+        System.out.println("Account1 balance after withdraw =  " + y);
+
+
+//        methods Overriding - when you have your requirments - you can create your own methods
+
+//        public void deposit(double amount){
+//            balance = balance + amount + 1;
+//        }
+
     }
 }

@@ -1,8 +1,11 @@
+// parent class - super class
+
+
 public class BankAccountSimple {
 
-    private int accountNumber;
-    private double balance;
-    private String customerName;
+    protected int accountNumber;
+    protected double balance;
+    protected String customerName;
 
     public BankAccountSimple(int accountNumber, double balance, String customerName) {
         this.accountNumber = accountNumber;
