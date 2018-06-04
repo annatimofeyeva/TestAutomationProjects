@@ -35,12 +35,14 @@ public class CitBankAccount extends BankAccountSimple {
         double y = account1.getBalance();
         System.out.println("Account1 balance after withdraw =  " + y);
 
+    }
 
-//        methods Overriding - when you have your requirments - you can create your own methods
+    // methods Overriding - when you have your requirments - you can create your own methods
 
-//        public void deposit(double amount){
-//            balance = balance + amount + 1;
-//        }
+    public void deposit(double amount) {
+        balance = balance + amount + 10;
 
     }
 }
+
+

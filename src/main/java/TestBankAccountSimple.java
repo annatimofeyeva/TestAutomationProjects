@@ -4,7 +4,7 @@ public class TestBankAccountSimple {
         BankAccountSimple account1 = new BankAccountSimple(1234, 6000, "John");
         double acc = account1.getBalance();
         System.out.println(acc);
-        double b = account1.deposit(2000);
+        account1.deposit(2000);
         System.out.println("First account balance: " + account1.getBalance());
 
         BankAccountSimple account2 = new BankAccountSimple(23456, 6000, "Steve");

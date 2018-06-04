@@ -11,7 +11,7 @@ public class Calculator {
 
 
     public static void main(String[] args) {
-        
+
 
         Calculator cal = new Calculator();
         double x = cal.addNumbers(2, 5);
@@ -21,6 +21,7 @@ public class Calculator {
         double z = cal.addNumbers(3, 20, 5, 55);
         System.out.println(z);
     }
+    // Methods Overloading -same name , but different method signatures
 
     public double addNumbers(double a, double b) {
         double sum;
