@@ -1,5 +1,5 @@
 public class CitBankAccount extends BankAccountSimple {
-    // Constructor
+
     public CitBankAccount(int accountNumber, double balance, String customerName) {
         super(accountNumber, balance, customerName);
     }

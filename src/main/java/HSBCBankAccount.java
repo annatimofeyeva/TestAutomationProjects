@@ -1,4 +1,5 @@
 public class HSBCBankAccount extends BankAccountSimple {
+
     public HSBCBankAccount(int accountNumber, double balance, String customerName) {
         super(accountNumber, balance, customerName);
     }

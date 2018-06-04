@@ -1,11 +1,13 @@
 public class TestBankAccountSimple {
+
     public static void main(String[] args) {
         BankAccountSimple account1 = new BankAccountSimple(1234, 6000, "John");
-        double acc = account1.getBalance();
-        System.out.println(acc);
+        double firstAccount = account1.getBalance();
+        System.out.println(firstAccount);
         account1.deposit(2000);
         System.out.println("First account balance: " + account1.getBalance());
 
+        // creating an array of personal accounts. accounts - name of the array
         BankAccountSimple account2 = new BankAccountSimple(23456, 6000, "Steve");
         BankAccountSimple account3 = new BankAccountSimple(23333, 7000, "Anna");
         BankAccountSimple account4 = new BankAccountSimple(33333, 8000, "Alla");
@@ -16,10 +18,8 @@ public class TestBankAccountSimple {
         BankAccountSimple account9 = new BankAccountSimple(88888, 6000, "Olena");
         BankAccountSimple account10 = new BankAccountSimple(99999, 6000, "Lynn");
 
-        // creating an array of personal accounts. accounts - name of the array
-
         BankAccountSimple[] accounts = new BankAccountSimple[10];
-        // put in array "account" object accordingly to the index:
+        // put in array "accounts" objects accordingly to the index:
         accounts[0] = account1;
         accounts[1] = account2;
         accounts[2] = account3;
