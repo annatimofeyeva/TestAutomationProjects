@@ -1,18 +1,13 @@
 import java.util.Scanner;
 
 public class Calculator {
-
     // exercise for Polymorfism and Overloading
     // Constructor
 
     public Calculator() {
     }
 
-
-
     public static void main(String[] args) {
-
-
         Calculator cal = new Calculator();
         double x = cal.addNumbers(2, 5);
         System.out.println(x);
@@ -38,6 +33,11 @@ public class Calculator {
     public double addNumbers(double a, double b, double c, double d) {
         double sum;
         sum = a + b + c + d;
+        return sum;
+    }
+    public double addNumbers(double a, double b, double c, double d, double e){
+        double sum;
+        sum = (a + b + c + d + e);
         return sum;
     }
 }

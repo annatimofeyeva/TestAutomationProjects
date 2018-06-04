@@ -1,6 +1,5 @@
 public class TestBankAccountSimple {
     public static void main(String[] args) {
-
         BankAccountSimple account1 = new BankAccountSimple(1234, 6000, "John");
         double acc = account1.getBalance();
         System.out.println(acc);
@@ -20,9 +19,7 @@ public class TestBankAccountSimple {
         // creating an array of personal accounts. accounts - name of the array
 
         BankAccountSimple[] accounts = new BankAccountSimple[10];
-
         // put in array "account" object accordingly to the index:
-
         accounts[0] = account1;
         accounts[1] = account2;
         accounts[2] = account3;
@@ -39,7 +36,6 @@ public class TestBankAccountSimple {
         System.out.println("Forth account number is: " + accounts[3].getAccountNumber());
 
         //find all accounts with balance more then 5000
-
         for (int i = 0; i < accounts.length; i++) {
             double x = accounts[i].getBalance(); // each account balance
             if (x > 5000) {
