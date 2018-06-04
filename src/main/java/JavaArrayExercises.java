@@ -15,7 +15,9 @@ public class JavaArrayExercises {
         double myDoubleSum = 0;
         for (double i : myDouble) {
             myDoubleSum += i;
-            System.out.println("Sum of all doubles is: " + myDoubleSum);
+            if(i > 5) {
+                System.out.println("Sum of all doubles is: " + myDoubleSum);
+            }
         }
-    }
-}
+    } // end of main
+} // end of class
