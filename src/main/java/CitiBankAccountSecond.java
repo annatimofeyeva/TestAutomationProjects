@@ -12,26 +12,26 @@ public class CitiBankAccountSecond implements BankAccount {
 
     public static void main(String[] args) {
 
-        CitiBankAccountSecond citi1 =
+        BankAccount citi1 =
                 new CitiBankAccountSecond(111, 1, "Alla");
-        CitiBankAccountSecond citi2 =
+        BankAccount citi2 =
                 new CitiBankAccountSecond(222, 1, "Anna");
-        CitiBankAccountSecond citi3 =
+        BankAccount citi3 =
                 new CitiBankAccountSecond(333, 1, "Steve");
-        CitiBankAccountSecond citi4 =
+        BankAccount citi4 =
                 new CitiBankAccountSecond(444, 1, "Mila");
-        CitiBankAccountSecond citi5 =
+        BankAccount citi5 =
                 new CitiBankAccountSecond(555, 1, "Nicole");
 
-        HSBSBankAccountSecond hsbs1 =
+        BankAccount hsbs1 =
                 new HSBSBankAccountSecond(666, 1, "Daniel");
-        HSBSBankAccountSecond hsbs2 =
+        BankAccount hsbs2 =
                 new HSBSBankAccountSecond(777, 1, "Gabriel");
-        HSBSBankAccountSecond hsbs3 =
+        BankAccount hsbs3 =
                 new HSBSBankAccountSecond(888, 1, "Harry");
-        HSBSBankAccountSecond hsbs4 =
+        BankAccount hsbs4 =
                 new HSBSBankAccountSecond(999, 1, "Albert");
-        HSBSBankAccountSecond hsbs5 =
+        BankAccount hsbs5 =
                 new HSBSBankAccountSecond(1000, 1, "Bryan");
 
         BankAccount[] allCitiAccounts =
