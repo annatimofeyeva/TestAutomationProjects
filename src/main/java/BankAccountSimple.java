@@ -1,6 +1,5 @@
 // parent class - super class
 
-
 public class BankAccountSimple {
 
     protected int accountNumber;
@@ -37,8 +36,8 @@ public class BankAccountSimple {
         this.customerName = customerName;
     }
 
-    public void withDraw(double amount) {
-        balance = balance - amount;
+    public double withDraw(double amount) {
+        return balance = balance - amount;
     }
 
     public void deposit(double amount) {
