@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class CitiBankAccountArrayList extends BankAccountSimple implements BankAccount {
+public class CitiBankAccountArrayList extends BankAccountSimple {
     private int accountNumber;
     private double balance;
     private String customerName;
@@ -10,20 +10,16 @@ public class CitiBankAccountArrayList extends BankAccountSimple implements BankA
         super(accountNumber, balance, customerName);
     }
 
-
-
-
-
     public static void main(String[] args) {
-        CitiBankAccountArrayList citi1 =
+        BankAccountSimple citi1 =
                 new CitiBankAccountArrayList(111, 1, "Alla");
-        CitiBankAccountArrayList citi2 =
+        BankAccountSimple citi2 =
                 new CitiBankAccountArrayList(222, 1, "Anna");
-        CitiBankAccountArrayList citi3 =
+        BankAccountSimple citi3 =
                 new CitiBankAccountArrayList(333, 1, "Steve");
-        CitiBankAccountArrayList citi4 =
+        BankAccountSimple citi4 =
                 new CitiBankAccountArrayList(444, 1, "Mila");
-        CitiBankAccountArrayList citi5 =
+        BankAccountSimple citi5 =
                 new CitiBankAccountArrayList(555, 1, "Nicole");
 
         BankAccountSimple hsbs1 =
@@ -38,13 +34,22 @@ public class CitiBankAccountArrayList extends BankAccountSimple implements BankA
                 new HSBSBankAccountArrayList(555, 1, "Emily");
 
 
-        ArrayList<CitiBankAccountArrayList> citiArrayList =
-                new ArrayList<CitiBankAccountArrayList>();
+        ArrayList<BankAccountSimple> citiArrayList =
+                new ArrayList<BankAccountSimple>();
         citiArrayList.add(citi1);
         citiArrayList.add(citi2);
         citiArrayList.add(citi3);
+        citiArrayList.add(citi4);
+        citiArrayList.add(citi5);
 
-        for (int i = 0; i < citiArrayList.size(); i++){
+        citiArrayList.add(hsbs1);
+        citiArrayList.add(hsbs2);
+        citiArrayList.add(hsbs3);
+        citiArrayList.add(hsbs4);
+        citiArrayList.add(hsbs5);
+
+
+        for (int i = 0; i < citiArrayList.size(); i++) {
             System.out.println(citiArrayList.get(i).getCustomerName());
         }
 
@@ -93,26 +98,6 @@ public class CitiBankAccountArrayList extends BankAccountSimple implements BankA
 //
 
 
-
-    } //end of main
-
-    public int getAccountNumber() {
-        return accountNumber;
     }
+}//end of main
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public double withDraw(double amount) {
-        return balance = balance - amount;
-    }
-
-    public void deposit(double amount) {
-        balance = balance + amount;
-    }
-}
