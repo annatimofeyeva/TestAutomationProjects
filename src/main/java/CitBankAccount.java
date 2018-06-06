@@ -4,7 +4,7 @@ public class CitBankAccount extends BankAccountSimple {
         super(accountNumber, balance, customerName);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MinimumBalanceNotMaintainedException {
         CitBankAccount account1 = new CitBankAccount(1111, 2000, "Anna");
         CitBankAccount account2 = new CitBankAccount(1111, 3000, "Alla");
         CitBankAccount account3 = new CitBankAccount(1111, 4000, "Lynn");
@@ -29,7 +29,11 @@ public class CitBankAccount extends BankAccountSimple {
                 System.out.println("Total balance of all accounts is: " + totalsum);
             }
         }
-        account1.withDraw(1000);
+        try {
+            account1.withDraw(300);
+        } catch (MinimumBalanceNotMaintainedException e) {
+            System.out.println("You dont have sufficient balance");
+        }
         double y = account1.getBalance();
         System.out.println("Account1 balance after withdraw =  " + y);
     }
