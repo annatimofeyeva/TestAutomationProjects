@@ -4,7 +4,7 @@ public class CitBankAccount extends BankAccountSimple {
         super(accountNumber, balance, customerName);
     }
 
-    public static void main(String[] args) throws MinimumBalanceNotMaintainedException {
+    public static void main(String[] args) throws MinimumBalanceNotMaintainedException, InactiveAccountException {
         CitBankAccount account1 = new CitBankAccount(1111, 2000, "Anna");
         CitBankAccount account2 = new CitBankAccount(1111, 3000, "Alla");
         CitBankAccount account3 = new CitBankAccount(1111, 4000, "Lynn");

@@ -4,6 +4,11 @@ public class BankAccountSimple {
     protected int accountNumber;
     protected double balance;
     protected String customerName;
+    protected boolean isActive;
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 
     public BankAccountSimple(int accountNumber, double balance, String customerName) {
         this.accountNumber = accountNumber;
@@ -35,10 +40,16 @@ public class BankAccountSimple {
         this.customerName = customerName;
     }
 
-    public double withDraw(double amount) throws MinimumBalanceNotMaintainedException {
+    public double withDraw(double amount) throws MinimumBalanceNotMaintainedException,
+            InactiveAccountException {
+        if(!isActive) {
+            InactiveAccountException inactiveAccount = new InactiveAccountException();
+            throw inactiveAccount;
+        }
+
         if (balance >= 500 + amount) {
             return balance = balance - amount;
-        } else {
+        }else {
             MinimumBalanceNotMaintainedException minbalance =
                     new MinimumBalanceNotMaintainedException();
             throw minbalance; // it's like a returning
