@@ -25,10 +25,9 @@ public class CitBankAccount extends BankAccountSimple {
         for (int i = 0; i < accounts.length; i++) {
             double balanceOfEachPerson = accounts[i].getBalance();
             totalsum = totalsum + balanceOfEachPerson;
-            if (i >= 4) {
-                System.out.println("Total balance of all accounts is: " + totalsum);
-            }
         }
+        System.out.println("Total balance of all accounts is: " + totalsum);
+
         try {
             account1.withDraw(300);
         } catch (MinimumBalanceNotMaintainedException e) {

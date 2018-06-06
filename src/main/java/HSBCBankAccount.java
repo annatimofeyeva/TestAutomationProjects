@@ -4,9 +4,10 @@
  */
 public class HSBCBankAccount extends BankAccountSimple {
 
-    /**Contsructor for the class inherits the BankAccountSimple
+    /**
+     * Contsructor for the class inherits the BankAccountSimple
      * Constructor
-     *
+     * <p>
      * accountNumber is Unique for every Customer
      * balance will give current money of each account
      * customer name provide the name of each customer
@@ -37,9 +38,8 @@ public class HSBCBankAccount extends BankAccountSimple {
         for (int i = 0; i < accounts.length; i++) {
             double balanceOfEachPerson = accounts[i].getBalance();
             sum = sum + balanceOfEachPerson;
-            if (i >= 4) {
-                System.out.println("Total balance of all accounts is: " + sum);
-            }
         }
+        System.out.println("Total balance of all accounts is: " + sum);
     }
 }
+

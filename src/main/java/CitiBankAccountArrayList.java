@@ -38,11 +38,10 @@ public class CitiBankAccountArrayList extends BankAccountSimple {
          */
 
         /* - here there is the place where you can change ArrayList size. ArrayList size is not
-//        fixed. Because arraylist is an object - size() - is a method.
-//        */
-//        /* but you can also execute some code and after it add some more elements
-//        in the arraylist:
-//        */
+      fixed. Because arraylist is an object - size() - is a method.
+       */
+      /* but you can also execute some code and after it add some more elements
+       */
 
         ArrayList<BankAccountSimple> citiArrayList =
                 new ArrayList<BankAccountSimple>();
@@ -70,12 +69,10 @@ public class CitiBankAccountArrayList extends BankAccountSimple {
         // and add again
         citiArrayList.add(hsbs5);
 
-        System.out.println("List of all customers: ");
+            System.out.println("List of all customers: ");
         for (int i = 0; i < citiArrayList.size(); i++) {
             System.out.println(citiArrayList.get(i).getCustomerName());
         }
-        System.out.println("Total balance: ");
-
         /* For each loop:
             for each object of BankAccountSimple in the Arraylist - citiArrayList
          */
@@ -84,31 +81,13 @@ public class CitiBankAccountArrayList extends BankAccountSimple {
             System.out.println(t.getAccountNumber());
         }
 
-        /// ??? - how to print the last value - balance total
-
-        System.out.println("Total balance is : ");
+            System.out.println("Total balance is : ");
         double totalBalance = 0;
         for (int i = 0; i < citiArrayList.size(); i++) {
             totalBalance = totalBalance + citiArrayList.get(i).getBalance();}
-        System.out.println(totalBalance);
+            System.out.println(totalBalance);
     }
-//            if (i > citiArrayList.size()) {
-//                System.out.println(totalBalance);
-//            }
 
-        // The output: Total balance is :
-        //1.0
-        //2.0
-        //3.0
-        //4.0
-        //5.0
-        //6.0
-        //7.0
-        //8.0
-        //9.0
-        //10.0
-
-        // ???? - how to print last value in the loop - it shoul be 10.00
 
 //        double totalBalance = 0;
 //        System.out.println("Total balance is : ");

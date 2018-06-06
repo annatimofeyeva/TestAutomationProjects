@@ -1,20 +1,20 @@
-/**CitiBankAccountSecond - class, that implements BankAccount interface and
+/**
+ * CitiBankAccountSecond - class, that implements BankAccount interface and
  * have an array of objects of both CitiBankAccountSecond and HSBSBankAccountSecond classes
- *
  */
-
 public class CitiBankAccountSecond implements BankAccount {
-    /** accountNumber - is the unique number of each customer account
-     *
+    /**
+     * accountNumber - is the unique number of each customer account
      */
     private int accountNumber;
-    /** balance will give current money of each account
-     *
+    /**
+     * balance will give current money of each account
      */
     private double balance;
     private String customerName;
 
-    /**Consructor for the CitiBankAccountSecond class
+    /**
+     * Consructor for the CitiBankAccountSecond class
      *
      * @param accountNumber
      * @param balance
@@ -60,11 +60,8 @@ public class CitiBankAccountSecond implements BankAccount {
         for (int i = 0; i < allCitiAccounts.length; i++) {
             double balanceOfEachPerson = allCitiAccounts[i].getBalance();
             totalSum = totalSum + balanceOfEachPerson;
-            if (i >= 9) {
-                System.out.println("Total balance is: " + totalSum);
-            }
         }
-
+        System.out.println("Total balance is: " + totalSum);
     } // end of main
 
     public int getAccountNumber() {
@@ -73,6 +70,7 @@ public class CitiBankAccountSecond implements BankAccount {
 
     /**
      * getAccountNumber displats current balance of an account
+     *
      * @return
      */
     public double getBalance() {
@@ -81,6 +79,7 @@ public class CitiBankAccountSecond implements BankAccount {
 
     /**
      * getCustomerName displays current customer name
+     *
      * @return
      */
     public String getCustomerName() {
@@ -89,6 +88,7 @@ public class CitiBankAccountSecond implements BankAccount {
 
     /**
      * withDraw method which allow customer to withdraw money
+     *
      * @param amount
      * @return
      */
@@ -98,6 +98,7 @@ public class CitiBankAccountSecond implements BankAccount {
 
     /**
      * Deposit method
+     *
      * @param amount
      */
     public void deposit(double amount) {

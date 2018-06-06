@@ -19,8 +19,5 @@ public class HSBSBankAccountArrayList extends BankAccountSimple {
                 new HSBSBankAccountArrayList(444, 8000, "Mike");
         HSBSBankAccountArrayList hsbs5 =
                 new HSBSBankAccountArrayList(555, 9000, "Emily");
-
-
-
     } //end of main
 }

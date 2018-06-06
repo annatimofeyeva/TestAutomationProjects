@@ -1,7 +1,4 @@
 // parent class - super class
-
-import java.sql.SQLOutput;
-
 public class BankAccountSimple {
 
     protected int accountNumber;
@@ -39,8 +36,6 @@ public class BankAccountSimple {
     }
 
     public double withDraw(double amount) throws MinimumBalanceNotMaintainedException {
-
-
         if (balance >= 500 + amount) {
             return balance = balance - amount;
         } else {
