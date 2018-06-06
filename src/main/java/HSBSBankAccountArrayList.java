@@ -1,4 +1,4 @@
-public class HSBSBankAccountArrayList extends BankAccountSimple implements BankAccount{
+public class HSBSBankAccountArrayList extends BankAccountSimple {
 
     private int accountNumber;
     private double balance;
@@ -23,24 +23,4 @@ public class HSBSBankAccountArrayList extends BankAccountSimple implements BankA
 
 
     } //end of main
-
-    public int getAccountNumber() {
-        return accountNumber;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public double withDraw(double amount) {
-        return balance = balance - amount;
-    }
-
-    public void deposit(double amount) {
-        balance = balance + amount;
-    }
 }

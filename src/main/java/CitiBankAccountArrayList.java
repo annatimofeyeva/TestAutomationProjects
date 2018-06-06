@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 public class CitiBankAccountArrayList extends BankAccountSimple {
     private int accountNumber;
     private double balance;
@@ -23,19 +22,31 @@ public class CitiBankAccountArrayList extends BankAccountSimple {
                 new CitiBankAccountArrayList(555, 1, "Nicole");
 
         BankAccountSimple hsbs1 =
-                new HSBSBankAccountArrayList(111, 1, "John");
+                new HSBSBankAccountArrayList(666, 1, "John");
         BankAccountSimple hsbs2 =
-                new HSBSBankAccountArrayList(222, 1, "Mary");
+                new HSBSBankAccountArrayList(777, 1, "Mary");
         BankAccountSimple hsbs3 =
-                new HSBSBankAccountArrayList(333, 1, "Steve");
+                new HSBSBankAccountArrayList(888, 1, "Steve");
         BankAccountSimple hsbs4 =
-                new HSBSBankAccountArrayList(444, 1, "Mike");
+                new HSBSBankAccountArrayList(999, 1, "Mike");
         BankAccountSimple hsbs5 =
-                new HSBSBankAccountArrayList(555, 1, "Emily");
+                new HSBSBankAccountArrayList(1000, 1, "Emily");
 
+        /* arrayList is an Object. Here: citiArrayList - is an object, ArrayList - class
+        of this object. Because citiArrayList is an object, we can use for it all methods,
+        which exists in the ArrayList class
+         */
+
+        /* - here there is the place where you can change ArrayList size. ArrayList size is not
+//        fixed. Because arraylist is an object - size() - is a method.
+//        */
+//        /* but you can also execute some code and after it add some more elements
+//        in the arraylist:
+//        */
 
         ArrayList<BankAccountSimple> citiArrayList =
                 new ArrayList<BankAccountSimple>();
+
         citiArrayList.add(citi1);
         citiArrayList.add(citi2);
         citiArrayList.add(citi3);
@@ -48,56 +59,62 @@ public class CitiBankAccountArrayList extends BankAccountSimple {
         citiArrayList.add(hsbs4);
         citiArrayList.add(hsbs5);
 
+        /* but you can also execute some code and after it add some more elements
+//        in the arraylist:
+//        */
+        System.out.println("Please find adding new arraylist elements below:");
 
+//        //you can also remove an element
+        citiArrayList.remove(hsbs5);
+
+        // and add again
+        citiArrayList.add(hsbs5);
+
+        System.out.println("List of all customers: ");
         for (int i = 0; i < citiArrayList.size(); i++) {
             System.out.println(citiArrayList.get(i).getCustomerName());
         }
+        System.out.println("Total balance: ");
 
-
-        /* arrayList is an Object. Here: banksAcountsArrayList - is an object, ArrayList - class
-        of this object. Because banksAccountsArrayList is an object, we can use for it all methods,
-        which exists in the ArrayList class
+        /* For each loop:
+            for each object of BankAccountSimple in the Arraylist - citiArrayList
          */
+        System.out.println("Customers accounts numbers: ");
+        for (BankAccountSimple t : citiArrayList) {
+            System.out.println(t.getAccountNumber());
+        }
 
-//        ArrayList<BankAccountSimple> b = new ArrayList<BankAccountSimple>();
-//
-//        b.add(citi1);
-//        b.add(citi2);
-//        b.add(citi3);
-//        b.add(citi4);
-//        b.add(citi5);
-//        b.add(hsbs1);
-//        b.add(hsbs2);
-//        b.add(hsbs3);
-//        b.add(hsbs4);
-//
-//        /* - here there is the place where you can change ArrayList size. ArrayList size is not
-//        fixed. Because arraylist is an object - arraylist.size() - is a method.
-//        */
-//        /* but you can also execute some code and after it add some more elements
-//        in the arraylist:
-//        */
-//        System.out.println("Please find adding new arraylist elements below:");
-//        b.add(hsbs5);
-//
-//        //you can also remove an element
-//        b.remove(hsbs5);
-//
-//        // and add again
-//        b.add(hsbs5);
-//
-//
-//
-//      for(int i = 0; i < b.size(); i++) {
-//          double a = b.get(i).getBalance();
-//          System.out.println(a);
-//      }
-//
-//
-//
-//
+        /// ??? - how to print the last value - balance total
 
+        System.out.println("Total balance is : ");
+        double totalBalance = 0;
+        for (int i = 0; i < citiArrayList.size(); i++) {
+            totalBalance = totalBalance + citiArrayList.get(i).getBalance();
+//            if (i > citiArrayList.size()) {
+//                System.out.println(totalBalance);
+//            }
+            System.out.println(totalBalance);
+        }
+        // The output: Total balance is :
+        //1.0
+        //2.0
+        //3.0
+        //4.0
+        //5.0
+        //6.0
+        //7.0
+        //8.0
+        //9.0
+        //10.0
 
+        // ???? - how to print last value in the loop - it shoul be 10.00
+
+//        double totalBalance = 0;
+//        System.out.println("Total balance is : ");
+//        for (BankAccountSimple t : citiArrayList) {
+//            totalBalance += t.getBalance();
+//            System.out.println(totalBalance);
+//        }
     }
-}//end of main
+}
 
