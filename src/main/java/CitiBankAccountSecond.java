@@ -44,10 +44,11 @@ public class CitiBankAccountSecond implements BankAccount {
         for (int i = 0; i < allCitiAccounts.length; i++) {
             double balanceOfEachPerson = allCitiAccounts[i].getBalance();
             totalSum = totalSum + balanceOfEachPerson;
-            if (i >=9) {
+            if (i >= 9) {
                 System.out.println("Total balance is: " + totalSum);
             }
         }
+
     } // end of main
 
     public int getAccountNumber() {
