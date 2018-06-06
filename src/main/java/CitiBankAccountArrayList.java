@@ -89,12 +89,13 @@ public class CitiBankAccountArrayList extends BankAccountSimple {
         System.out.println("Total balance is : ");
         double totalBalance = 0;
         for (int i = 0; i < citiArrayList.size(); i++) {
-            totalBalance = totalBalance + citiArrayList.get(i).getBalance();
+            totalBalance = totalBalance + citiArrayList.get(i).getBalance();}
+        System.out.println(totalBalance);
+    }
 //            if (i > citiArrayList.size()) {
 //                System.out.println(totalBalance);
 //            }
-            System.out.println(totalBalance);
-        }
+
         // The output: Total balance is :
         //1.0
         //2.0
@@ -113,8 +114,9 @@ public class CitiBankAccountArrayList extends BankAccountSimple {
 //        System.out.println("Total balance is : ");
 //        for (BankAccountSimple t : citiArrayList) {
 //            totalBalance += t.getBalance();
-//            System.out.println(totalBalance);
+//
 //        }
+// System.out.println(totalBalance);
     }
-}
+
 

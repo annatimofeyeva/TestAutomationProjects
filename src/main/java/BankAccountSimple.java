@@ -46,7 +46,8 @@ public class BankAccountSimple {
         } else {
             MinimumBalanceNotMaintainedException minbalance =
                     new MinimumBalanceNotMaintainedException();
-            throw minbalance;
+            throw minbalance; // it's like a returning
+            // should be the last statement
         }
     }
 
