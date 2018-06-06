@@ -1,5 +1,20 @@
+/**
+ * HSBCBankAccount class include information about customer's accounts, such as
+ * account number, customer name, balance etc
+ */
 public class HSBCBankAccount extends BankAccountSimple {
 
+    /**Contsructor for the class inherits the BankAccountSimple
+     * Constructor
+     *
+     * accountNumber is Unique for every Customer
+     * balance will give current money of each account
+     * customer name provide the name of each customer
+     *
+     * @param accountNumber
+     * @param balance
+     * @param customerName
+     */
     public HSBCBankAccount(int accountNumber, double balance, String customerName) {
         super(accountNumber, balance, customerName);
     }

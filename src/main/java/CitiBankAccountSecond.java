@@ -1,9 +1,25 @@
-public class CitiBankAccountSecond implements BankAccount {
+/**CitiBankAccountSecond - class, that implements BankAccount interface and
+ * have an array of objects of both CitiBankAccountSecond and HSBSBankAccountSecond classes
+ *
+ */
 
+public class CitiBankAccountSecond implements BankAccount {
+    /** accountNumber - is the unique number of each customer account
+     *
+     */
     private int accountNumber;
+    /** balance will give current money of each account
+     *
+     */
     private double balance;
     private String customerName;
 
+    /**Consructor for the CitiBankAccountSecond class
+     *
+     * @param accountNumber
+     * @param balance
+     * @param customerName
+     */
     public CitiBankAccountSecond(int accountNumber, double balance, String customerName) {
         this.accountNumber = accountNumber;
         this.balance = balance;
@@ -55,18 +71,35 @@ public class CitiBankAccountSecond implements BankAccount {
         return accountNumber;
     }
 
+    /**
+     * getAccountNumber displats current balance of an account
+     * @return
+     */
     public double getBalance() {
         return balance;
     }
 
+    /**
+     * getCustomerName displays current customer name
+     * @return
+     */
     public String getCustomerName() {
         return customerName;
     }
 
+    /**
+     * withDraw method which allow customer to withdraw money
+     * @param amount
+     * @return
+     */
     public double withDraw(double amount) {
         return balance - amount;
     }
 
+    /**
+     * Deposit method
+     * @param amount
+     */
     public void deposit(double amount) {
         balance = balance + amount + 100;
     }
