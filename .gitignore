@@ -55,8 +55,8 @@ fabric.properties
 *.html
 
 # XML files
-pom.xml
+*.xml
 
 # IML files
-mavenatomation.iml
+*.iml
 
