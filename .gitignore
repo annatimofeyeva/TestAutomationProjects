@@ -54,3 +54,9 @@ fabric.properties
 # HTML files after creation JavaDoc
 *.html
 
+# XML files
+*.xml
+
+# IML files
+*.iml
+
