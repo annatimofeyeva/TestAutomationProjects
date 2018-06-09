@@ -59,7 +59,30 @@ public class FitsChromeAutomationTests {
         subjectInformatinIcon.click();
         Thread.sleep(2000);
 
+        // Entering data for the Subject Information Form
 
+        WebElement caseId = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.caseNumber']"));
+        caseId.sendKeys("11111");
+        WebElement suspectType = driver.findElement(By.xpath("//select[@ng-model='wizard.report.suspectType']//option[@value = 'Victim']"));
+        suspectType.click();
+        WebElement lastName = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.lastName']"));
+        lastName.sendKeys("Smith");
+        WebElement firstName = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.firstName']"));
+        firstName.sendKeys("John");
+        WebElement middleName = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.middleName']"));
+        middleName.sendKeys("S");
+        WebElement nickName = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.nickname']"));
+        nickName.sendKeys("NNN");
+        WebElement DOB = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.dob']"));
+        DOB.sendKeys("11/23/1990");
+        WebElement age = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.age']"));
+        age.sendKeys("28");
+        WebElement sex = driver.findElement(By.xpath(" //select[@ng-model = 'wizard.report.sex']//option[text() = 'M']"));
+        sex.click();
+//        WebElement race = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.race']"));
+//        race.click();
+//        WebElement height = driver.findElement(By.xpath(""));
+//        height.sendKeys();
 
     } // end of method
 } // end of class
