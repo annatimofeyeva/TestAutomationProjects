@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class FitsChromeAutomationTests {
@@ -58,7 +59,7 @@ public class FitsChromeAutomationTests {
         subjectInformatinIcon.click();
         Thread.sleep(2000);
 
-        // Entering data for the Subject Information Form
+        // Subject Information Form page tests
 
         WebElement caseId = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.caseNumber']"));
         caseId.sendKeys("11111");
@@ -83,7 +84,7 @@ public class FitsChromeAutomationTests {
         WebElement height = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.height']"));
         height.sendKeys("5.7");
         WebElement weight = driver.findElement(By.xpath(" //input[@ng-model = 'wizard.report.weight']"));
-        weight.sendKeys("165");
+        weight.sendKeys("165.25");
         WebElement build = driver.findElement(By.xpath("//select[@ng-model = 'wizard.report.build']//option[@value = 'M']"));
         build.click();
         WebElement hairColor = driver.findElement(By.xpath(" //select[@ng-model = 'wizard.report.hairColor']//option[@value = 'BLK']"));
@@ -109,21 +110,13 @@ public class FitsChromeAutomationTests {
         WebElement city = driver.findElement(By.xpath("//input[@ng-model='wizard.report.city']"));
         city.sendKeys("Seattle");
 
-        // ????????????? Question for Yagna
+        // Select from Drop Down
 
-        //org.openqa.selenium.WebDriverException: unknown error: cannot focus element
-        /**
-         * in real application we need to type - sendKeys()
-         * when we run - it shows drop down with SELECT values;
-         * in HTML - there exist both input and select tags
-         */
-
-//        WebElement state = driver.findElement(By.xpath("//input[@ng-hide = 'showStatesDropDown']"));
-//        state.sendKeys("Washington");
-
-        //input[@ng-hide = 'showStatesDropDown']
-        //option[text() = 'Alabama']
-        ////select[@ng-show='showStatesDropDown']//option[@value='AL']
+        String stateName = "Alabama";
+        //WebElement state = driver.findElement(By.name("state"));
+        WebElement state = driver.findElement(By.xpath("//input[@ng-hide='showStatesDropDown']"));
+        Select state2 = new Select(driver.findElement(By.name("state")));
+        state2.selectByVisibleText(stateName);
 
         WebElement zipCode = driver.findElement(By.xpath(" //input[@ng-model='wizard.report.zip']"));
         zipCode.sendKeys("98004");
@@ -133,8 +126,12 @@ public class FitsChromeAutomationTests {
         eMail.sendKeys("john@john.com");
 
         // Radio buttons
+        WebElement radioDriver = driver.findElement(By.xpath("//label[text() = 'Driver']"));
+        radioDriver.click();
         WebElement radioPassenger = driver.findElement(By.xpath("//label[text() = 'Passenger']"));
         radioPassenger.click();
+        WebElement radioPedestrian = driver.findElement(By.xpath("//label[text() = 'Pedestrian']"));
+        radioPedestrian.click();
 
 
         // Next page link clicking
@@ -162,10 +159,146 @@ public class FitsChromeAutomationTests {
         xAct.click();
         xAct.perform();
 
-        // Previous page
+        // Previous page clicking
 
 //        WebElement previuosPageLink = driver.findElement(By.xpath("//a[@ng-click='wizard.go(1)']"));
 //        previuosPageLink.click();
+
+
+        // Field Interview Card page tests
+
+        WebElement checkBoxTattoos = driver.findElement(By.xpath("//input[@ng-model='wizard.report.tattoos']"));
+        Actions xAct1 = new Actions(driver);
+        xAct1.moveToElement(checkBoxTattoos);
+        xAct1.click();
+        xAct1.perform();
+
+        WebElement checkBoxScars = driver.findElement(By.xpath("//input[@ng-model='wizard.report.scars']"));
+        Actions xAct2 = new Actions(driver);
+        xAct2.moveToElement(checkBoxScars);
+        xAct2.click();
+        xAct2.perform();
+
+//        WebElement checkBoxNeedleMarks = driver.findElement(By.xpath("//input[@ng-model='wizard.report.needleMarks']"));
+//        Actions xAct3 = new Actions(driver);
+//        xAct3.moveToElement(checkBoxNeedleMarks);
+//        xAct3.click();
+//        xAct3.perform();
+//
+//        WebElement checkBoxTracks = driver.findElement(By.xpath("//input[@ng-model='wizard.report.tracks']"));
+//        Actions xAct4 = new Actions(driver);
+//        xAct4.moveToElement(checkBoxTracks );
+//        xAct4.click();
+//        xAct4.perform();
+//
+//        WebElement checkBoxGlasses = driver.findElement(By.xpath("//input[@ng-model='wizard.report.glasses']"));
+//        Actions xAct5 = new Actions(driver);
+//        xAct5.moveToElement(checkBoxTracks );
+//        xAct5.click();
+//        xAct5.perform();
+//
+//
+//        WebElement checkBoxMustache = driver.findElement(By.xpath("//input[@ng-model='wizard.report.mustache']"));
+//        Actions xAct6 = new Actions(driver);
+//        xAct6.moveToElement(checkBoxTracks );
+//        xAct6.click();
+//        xAct6.perform();
+//
+//        WebElement checkBoxBeard = driver.findElement(By.xpath("//input[@ng-model='wizard.report.beard']"));
+//        Actions xAct7 = new Actions(driver);
+//        xAct7.moveToElement(checkBoxTracks );
+//        xAct7.click();
+//        xAct7.perform();
+
+        WebElement nextPageLink1 = driver.findElement(By.xpath("//a[@ng-click='wizard.go(4)']"));
+        nextPageLink1.click();
+
+    // Field Interview Card page
+
+        WebElement socialSecurity = driver.findElement(By.xpath("//input[@name='socialSecurity']"));
+        socialSecurity.sendKeys("11111111");
+        WebElement driverLicense = driver.findElement(By.xpath("//input[@name='driverLicense']"));
+        driverLicense.sendKeys("AAA");
+
+        // Select from drop down
+
+
+
+        //WebElement stateFirst= driver.findEString stateFirst = "Alabama";lement(By.name("state"));
+        String stateFirst = "Alabama";
+        Select newstate = new Select(driver.findElement(By.xpath("//select[@ng-model='wizard.report.dlState']")));
+        newstate.selectByVisibleText(stateFirst);
+
+        WebElement otherIDNumber = driver.findElement(By.xpath("//input[@name='other-id']"));
+        otherIDNumber.sendKeys("AAAAAAAAAA");
+
+        //String country2 = "United States";
+        //WebElement state = driver.findElement(By.name("state"));
+        Select  selectCountry = new Select(driver.findElement(By.name("otherIdCountry")));
+        selectCountry.selectByVisibleText("Albania");
+
+        WebElement otherIDType = driver.findElement(By.xpath("//input[@name='other-id-type']"));
+        otherIDType.sendKeys("BBBBBBBB");
+
+
+//        //input[@ng-hide="showStatesDropDown"]
+//        String stateSecond = "Albania";
+//        Select  selectCountryHiden = new Select(driver.findElement(By.xpath("//select[@ng-hide='showStatesDropDown']")));
+//        selectCountryHiden.selectByVisibleText(stateSecond);
+
+        WebElement schoolName = driver.findElement(By.xpath("//input[@name='school-name']"));
+        schoolName.sendKeys("BHS");
+        WebElement schoolAddress = driver.findElement(By.xpath("//input[@name='school-address']"));
+        schoolAddress.sendKeys("1st Main street");
+        WebElement schoolCity = driver.findElement(By.xpath("//input[@name='school-city']"));
+        schoolCity.sendKeys("Bellevue");
+
+        // state 3
+        //WebElement name = driver.findElement(By.xpath(""));
+
+        WebElement schoolZip = driver.findElement(By.xpath("//input[@name='school-zip']"));
+        schoolAddress.sendKeys("98004");
+        WebElement schoolTelephone = driver.findElement(By.xpath("//input[@name='schoolTelephone']"));
+        schoolTelephone.sendKeys("4251111111");
+
+        WebElement parentName = driver.findElement(By.xpath("//input[@name='parent-name']"));
+        parentName.sendKeys("Steve");
+        WebElement parentAddress = driver.findElement(By.xpath("//input[@name='parent-address']"));
+        parentAddress.sendKeys("1st Main street");
+        WebElement parentCity = driver.findElement(By.xpath("//input[@name='parent-city']"));
+        parentCity.sendKeys("Redmond");
+
+        // state 4
+        //WebElement name = driver.findElement(By.xpath(""));
+
+        WebElement parentZip = driver.findElement(By.xpath("//input[@name='parentZip']"));
+        parentZip.sendKeys("980025");
+
+        WebElement subjectOccupation = driver.findElement(By.xpath("//input[@name='occupation']"));
+        subjectOccupation.sendKeys("teacher");
+        WebElement employersName = driver.findElement(By.xpath("//input[@name='employer-name']"));
+        employersName.sendKeys("Seattle University");
+        WebElement employersAddress = driver.findElement(By.xpath("//input[@name='employer-address']"));
+        employersAddress.sendKeys("1st Main street");
+        WebElement employersCity = driver.findElement(By.xpath("//input[@name='employer-city']"));
+        employersCity.sendKeys("Seattle");
+
+        // state4
+        //
+
+        WebElement employersZip = driver.findElement(By.xpath("//input[@name='employer-zip']"));
+        employersZip.sendKeys("123456");
+        WebElement employerTelephone = driver.findElement(By.xpath("//input[@name='employerTelephone']"));
+        employerTelephone.sendKeys("34567678");
+        WebElement nextPageLink2 = driver.findElement(By.xpath("//a[@ng-click='wizard.go(5)']"));
+        Actions xAct3 = new Actions(driver);
+        xAct3.moveToElement(nextPageLink2);
+        xAct3.click();
+        xAct3.perform();
+
+
+
+
 
 
     } // end of method
