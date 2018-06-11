@@ -228,7 +228,7 @@ public class FitsChromeAutomationTests {
         WebElement nextPageLink1 = driver.findElement(By.xpath("//a[@ng-click='wizard.go(4)']"));
         nextPageLink1.click();
 
-    // Field Interview Card page
+        // Field Interview Card page
 
         WebElement socialSecurity = driver.findElement(By.xpath("//input[@name='socialSecurity']"));
         socialSecurity.sendKeys("11111111");
@@ -237,30 +237,26 @@ public class FitsChromeAutomationTests {
 
         // Select from drop down
 
-
-
-        //WebElement stateFirst= driver.findEString stateFirst = "Alabama";lement(By.name("state"));
         String stateFirst = "Alabama";
-        Select newstate = new Select(driver.findElement(By.xpath("//select[@ng-model='wizard.report.dlState']")));
-        newstate.selectByVisibleText(stateFirst);
+        WebElement newState1 = driver.findElement(By.xpath("//select[@ng-model='wizard.report.dlState']"));
+        Select newstateOne = new Select(newState1);
+        newstateOne.selectByVisibleText(stateFirst);
 
         WebElement otherIDNumber = driver.findElement(By.xpath("//input[@name='other-id']"));
         otherIDNumber.sendKeys("AAAAAAAAAA");
 
-        //String country2 = "United States";
-        //WebElement state = driver.findElement(By.name("state"));
-        Select  selectCountry = new Select(driver.findElement(By.name("otherIdCountry")));
-        selectCountry.selectByVisibleText("Albania");
+        String countrySecond = "Albania";
+        WebElement stateObject2 = driver.findElement(By.name("otherIdCountry"));
+        Select  selectCountry = new Select(stateObject2);
+        selectCountry.selectByVisibleText(countrySecond);
+
+        String stateSecond = "Alabama";
+        WebElement newState2 = driver.findElement(By.xpath("//select[@ng-model='wizard.report.dlState']"));
+        Select newstateSecond= new Select(newState2);
+        newstateSecond.selectByVisibleText(stateSecond);
 
         WebElement otherIDType = driver.findElement(By.xpath("//input[@name='other-id-type']"));
         otherIDType.sendKeys("BBBBBBBB");
-
-
-//        //input[@ng-hide="showStatesDropDown"]
-//        String stateSecond = "Albania";
-//        Select  selectCountryHiden = new Select(driver.findElement(By.xpath("//select[@ng-hide='showStatesDropDown']")));
-//        selectCountryHiden.selectByVisibleText(stateSecond);
-
         WebElement schoolName = driver.findElement(By.xpath("//input[@name='school-name']"));
         schoolName.sendKeys("BHS");
         WebElement schoolAddress = driver.findElement(By.xpath("//input[@name='school-address']"));
@@ -269,7 +265,26 @@ public class FitsChromeAutomationTests {
         schoolCity.sendKeys("Bellevue");
 
         // state 3
-        //WebElement name = driver.findElement(By.xpath(""));
+
+//        WebElement newState3 = driver.findElement(By.xpath("//select[@ng-show='showOtherIdStatesDropDown']//option[text()='Alaska']"));
+//        newState3.click();
+        //select[@ng-show='showOtherIdStatesDropDown']//option[text()='Alaska']
+
+        WebElement newState3 = driver.findElement(By.xpath("//select[@ng-show='showOtherIdStatesDropDown']//option[text()='Alaska']"));
+        Actions xAct4 = new Actions(driver);
+        xAct4.moveToElement(checkBoxTattoos);
+        xAct4.click();
+        xAct4.perform();
+
+
+
+
+
+//        String stateThird = "Florida";
+//        WebElement newState3 = driver.findElement(By.xpath("//input[@ng-hide='showOtherIdStatesDropDown']"));
+//        Select newstateThird= new Select(newState3);
+//        newstateThird.selectByVisibleText(stateSecond);
+
 
         WebElement schoolZip = driver.findElement(By.xpath("//input[@name='school-zip']"));
         schoolAddress.sendKeys("98004");
@@ -282,12 +297,13 @@ public class FitsChromeAutomationTests {
         parentAddress.sendKeys("1st Main street");
         WebElement parentCity = driver.findElement(By.xpath("//input[@name='parent-city']"));
         parentCity.sendKeys("Redmond");
+        WebElement parentZip = driver.findElement(By.xpath("//input[@name='parentZip']"));
+        parentZip.sendKeys("Seattle");
+        WebElement parentTelephone = driver.findElement(By.xpath("//input[@name='parentTelephone']"));
+        parentTelephone .sendKeys("Seattle");
 
         // state 4
         //WebElement name = driver.findElement(By.xpath(""));
-
-        WebElement parentZip = driver.findElement(By.xpath("//input[@name='parentZip']"));
-        parentZip.sendKeys("980025");
 
         WebElement subjectOccupation = driver.findElement(By.xpath("//input[@name='occupation']"));
         subjectOccupation.sendKeys("teacher");
@@ -297,6 +313,8 @@ public class FitsChromeAutomationTests {
         employersAddress.sendKeys("1st Main street");
         WebElement employersCity = driver.findElement(By.xpath("//input[@name='employer-city']"));
         employersCity.sendKeys("Seattle");
+
+
 
         // state4
         //
@@ -310,11 +328,5 @@ public class FitsChromeAutomationTests {
         xAct3.moveToElement(nextPageLink2);
         xAct3.click();
         xAct3.perform();
-
-
-
-
-
-
     } // end of method
 } // end of class
