@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.support.ui.Select;
 
 
@@ -35,14 +36,15 @@ public class FitsChromeAutomationTests {
         Thread.sleep(2000);
         loginButton.click();
 
-        // Add Report Form
+        // Add Report Form:
 
-        // 1. Click "Add report Button"
+        // "Add report Button"
         WebElement addReportButton = driver.findElement(By.xpath("//span[text() = 'Add Report']"));
         addReportButton.click();
 
-        //2. Select Radiobutton:
+        // Select Radiobutton:
 
+        // button clicked with Xpath
         WebElement lab1RadioBnt = driver.findElement(By.xpath("//label[text() = 'Lab1']"));
         lab1RadioBnt.click();
         Thread.sleep(2000);
@@ -55,13 +57,14 @@ public class FitsChromeAutomationTests {
         lab3RadioBnt.click();
         Thread.sleep(2000);
 
-        // click on Subject Information icon
+
+        // Subject Information icon
 
         WebElement subjectInformatinIcon = driver.findElement(By.xpath("//div[@title='Subject Information']"));
         subjectInformatinIcon.click();
         Thread.sleep(2000);
 
-        // Subject Information Form page tests
+        // Subject Information Form page:
 
         WebElement caseId = driver.findElement(By.xpath("//input[@ng-model = 'wizard.report.caseNumber']"));
         caseId.sendKeys("11111");
@@ -112,6 +115,7 @@ public class FitsChromeAutomationTests {
         WebElement city = driver.findElement(By.xpath("//input[@ng-model='wizard.report.city']"));
         city.sendKeys("Seattle");
 
+
         // Select from Drop Down
 
         String stateName = "Alabama";
@@ -127,14 +131,73 @@ public class FitsChromeAutomationTests {
         WebElement eMail = driver.findElement(By.xpath(" //input[@ng-model='wizard.report.contactEmail']"));
         eMail.sendKeys("john@john.com");
 
-        // Radio buttons
-        WebElement radioDriver = driver.findElement(By.xpath("//label[text() = 'Driver']"));
-        radioDriver.click();
-        WebElement radioPassenger = driver.findElement(By.xpath("//label[text() = 'Passenger']"));
-        radioPassenger.click();
-        WebElement radioPedestrian = driver.findElement(By.xpath("//label[text() = 'Pedestrian']"));
-        radioPedestrian.click();
+        // Radio buttons: - work!!!
+//        WebElement radioDriver = driver.findElement(By.xpath("//label[text() = 'Driver']"));
+//        radioDriver.click();
+//        WebElement radioPassenger = driver.findElement(By.xpath("//label[text() = 'Passenger']"));
+//        radioPassenger.click();
+//        WebElement radioPedestrian = driver.findElement(By.xpath("//label[text() = 'Pedestrian']"));
+//        radioPedestrian.click();
 
+//         Radiobutton clicked with isSelected(): does not work!!!
+//
+//         Store all the elements of same category in the list of WebLements
+//
+//        List <WebElement> radioButtons = driver.findElements(By.xpath("//label//input[@type='radio']"));
+//
+//        // Create a boolean variable which will hold the value (True/False)
+//
+//        boolean bValue = false;
+//
+//        // This statement will return True, in case of first Radio button is selected
+//
+//        bValue = radioButtons.get(0).isSelected();
+//
+//        // This will check that if the bValue is True means if the first radio button is selected
+//
+//        if(bValue = true){
+//
+//            // This will select Second radio button, if the first radio button is selected by default
+//
+//            radioButtons.get(1).click();
+//
+//        }else{
+//
+//            // If the first radio button is not selected by default, the first will be selected
+//
+//            radioButtons.get(0).click();
+//
+//        }
+
+        // Find the checkbox or radio button element by Name - work!!!
+
+        List<WebElement> oCheckBox = driver.findElements(By.xpath("//label//input[@type='radio']"));
+
+        // This will tell you the number of checkboxes are present
+
+        int iSize = oCheckBox.size();
+
+        // Start the loop from first checkbox to last checkboxe
+
+        for (int i = 0; i < iSize; i++) {
+
+            // Store the checkbox name to the string variable, using 'Value' attribute
+
+            String sValue = oCheckBox.get(i).getAttribute("value");
+
+            // Select the checkbox it the value of the checkbox is same what you are looking for
+
+            if (sValue.equalsIgnoreCase("Passenger")) {
+
+                oCheckBox.get(i).click();
+
+                // This will take the execution out of for loop
+
+                break;
+
+            }
+
+        }
 
         // Next page link clicking
 
@@ -155,16 +218,18 @@ public class FitsChromeAutomationTests {
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         */
 
-        WebElement nextPageLink = driver.findElement(By.xpath("//a[@ng-click='wizard.go(3)']"));
-        Actions xAct = new Actions(driver);
-        xAct.moveToElement(nextPageLink);
-        xAct.click();
-        xAct.perform();
 
-        // Previous page clicking
+        // Next page clicking - works!
 
-//        WebElement previuosPageLink = driver.findElement(By.xpath("//a[@ng-click='wizard.go(1)']"));
-//        previuosPageLink.click();
+//        WebElement nextPageLink = driver.findElement(By.xpath("//a[@ng-click='wizard.go(3)']"));
+//        Actions xAct = new Actions(driver);
+//        xAct.moveToElement(nextPageLink);
+//        xAct.click();
+//        xAct.perform();
+
+
+        WebElement nextPageLink = driver.findElement(By.xpath("//*[@ng-show='wizard.active(2)']//a[@ng-click = 'wizard.go(3)']"));
+        nextPageLink.click();
 
 
         // Field Interview Card page tests
@@ -247,12 +312,12 @@ public class FitsChromeAutomationTests {
 
         String countrySecond = "Albania";
         WebElement stateObject2 = driver.findElement(By.name("otherIdCountry"));
-        Select  selectCountry = new Select(stateObject2);
+        Select selectCountry = new Select(stateObject2);
         selectCountry.selectByVisibleText(countrySecond);
 
         String stateSecond = "Alabama";
         WebElement newState2 = driver.findElement(By.xpath("//select[@ng-model='wizard.report.dlState']"));
-        Select newstateSecond= new Select(newState2);
+        Select newstateSecond = new Select(newState2);
         newstateSecond.selectByVisibleText(stateSecond);
 
         WebElement otherIDType = driver.findElement(By.xpath("//input[@name='other-id-type']"));
@@ -264,22 +329,31 @@ public class FitsChromeAutomationTests {
         WebElement schoolCity = driver.findElement(By.xpath("//input[@name='school-city']"));
         schoolCity.sendKeys("Bellevue");
 
+        WebElement schoolState = driver.findElement(By.xpath("//select[@ng-model='wizard.report.otherIdState']//option[@value='TX']"));
+        Actions xAct6 = new Actions(driver);
+        xAct6.moveToElement(schoolState);
+        xAct6.click();
+        xAct6.perform();
+
+
         // state 3
 
 //        WebElement newState3 = driver.findElement(By.xpath("//select[@ng-show='showOtherIdStatesDropDown']//option[text()='Alaska']"));
 //        newState3.click();
         //select[@ng-show='showOtherIdStatesDropDown']//option[text()='Alaska']
 
-        WebElement newState3 = driver.findElement(By.xpath("//select[@ng-show='showOtherIdStatesDropDown']//option[text()='Alaska']"));
-        Actions xAct4 = new Actions(driver);
-        xAct4.moveToElement(checkBoxTattoos);
-        xAct4.click();
-        xAct4.perform();
 
+//        String newState3  = "Arizona";
+//        //WebElement state = driver.findElement(By.name("state"));
+//        WebElement state3 = driver.findElement(By.xpath("//input[@ng-hide='showStatesDropDown']"));
+//        Select state5 = new Select(driver.findElement(By.name("state3")));
+//        state5.selectByVisibleText(stateName);
 
-
-
-
+//        WebElement newState3 = driver.findElement(By.xpath("//input[@ng-show='showOtherIdStatesDropDown']aska']"));
+//        Actions xAct4 = new Actions(driver);
+//        xAct4.moveToElement(checkBoxTattoos);
+//        xAct4.click();
+//        xAct4.perform();
 //        String stateThird = "Florida";
 //        WebElement newState3 = driver.findElement(By.xpath("//input[@ng-hide='showOtherIdStatesDropDown']"));
 //        Select newstateThird= new Select(newState3);
@@ -291,6 +365,7 @@ public class FitsChromeAutomationTests {
         WebElement schoolTelephone = driver.findElement(By.xpath("//input[@name='schoolTelephone']"));
         schoolTelephone.sendKeys("4251111111");
 
+
         WebElement parentName = driver.findElement(By.xpath("//input[@name='parent-name']"));
         parentName.sendKeys("Steve");
         WebElement parentAddress = driver.findElement(By.xpath("//input[@name='parent-address']"));
@@ -300,7 +375,7 @@ public class FitsChromeAutomationTests {
         WebElement parentZip = driver.findElement(By.xpath("//input[@name='parentZip']"));
         parentZip.sendKeys("Seattle");
         WebElement parentTelephone = driver.findElement(By.xpath("//input[@name='parentTelephone']"));
-        parentTelephone .sendKeys("Seattle");
+        parentTelephone.sendKeys("Seattle");
 
         // state 4
         //WebElement name = driver.findElement(By.xpath(""));
@@ -313,7 +388,6 @@ public class FitsChromeAutomationTests {
         employersAddress.sendKeys("1st Main street");
         WebElement employersCity = driver.findElement(By.xpath("//input[@name='employer-city']"));
         employersCity.sendKeys("Seattle");
-
 
 
         // state4
