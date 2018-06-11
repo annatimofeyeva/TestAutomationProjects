@@ -5,6 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -240,18 +243,25 @@ public class FitsChromeAutomationTests {
 //            driver.findElement(By.id("idOfTheElement")).click();
 //        }
 
+        // all checkboxes are selected:
+
 //        List<WebElement> els = driver.findElements(By.xpath("//input[@type='checkbox']"));
 //        for ( WebElement el : els ) {
 //            if ( !el.isSelected() ) {
 //                el.click();
+
 //            }
 //        }
 
-        WebElement checkBoxTattoos = driver.findElement(By.xpath("//input[@ng-model='wizard.report.tattoos']"));
-        Actions xAct1 = new Actions(driver);
-        xAct1.moveToElement(checkBoxTattoos);
-        xAct1.click();
-        xAct1.perform();
+        List<WebElement> interviewCardcheckbx = driver.findElements(By.xpath("//input[@type='checkbox']"));
+        for (WebElement e : interviewCardcheckbx) {
+            if (!e.isSelected()) {
+                interviewCardcheckbx.get(0).click();
+                break;
+            }
+        }
+        WebElement tatoosData = driver.findElement(By.xpath("//input[@name='Tattoos']"));
+        tatoosData.sendKeys("Test");
 
 //        WebElement checkBoxScars = driver.findElement(By.xpath("//input[@ng-model='wizard.report.scars']"));
 //        Actions xAct2 = new Actions(driver);
@@ -259,36 +269,7 @@ public class FitsChromeAutomationTests {
 //        xAct2.click();
 //        xAct2.perform();
 
-//        WebElement checkBoxNeedleMarks = driver.findElement(By.xpath("//input[@ng-model='wizard.report.needleMarks']"));
-//        Actions xAct3 = new Actions(driver);
-//        xAct3.moveToElement(checkBoxNeedleMarks);
-//        xAct3.click();
-//        xAct3.perform();
-//
-//        WebElement checkBoxTracks = driver.findElement(By.xpath("//input[@ng-model='wizard.report.tracks']"));
-//        Actions xAct4 = new Actions(driver);
-//        xAct4.moveToElement(checkBoxTracks );
-//        xAct4.click();
-//        xAct4.perform();
-//
-//        WebElement checkBoxGlasses = driver.findElement(By.xpath("//input[@ng-model='wizard.report.glasses']"));
-//        Actions xAct5 = new Actions(driver);
-//        xAct5.moveToElement(checkBoxTracks );
-//        xAct5.click();
-//        xAct5.perform();
-//
-//
-//        WebElement checkBoxMustache = driver.findElement(By.xpath("//input[@ng-model='wizard.report.mustache']"));
-//        Actions xAct6 = new Actions(driver);
-//        xAct6.moveToElement(checkBoxTracks );
-//        xAct6.click();
-//        xAct6.perform();
-//
-//        WebElement checkBoxBeard = driver.findElement(By.xpath("//input[@ng-model='wizard.report.beard']"));
-//        Actions xAct7 = new Actions(driver);
-//        xAct7.moveToElement(checkBoxTracks );
-//        xAct7.click();
-//        xAct7.perform();
+
 
         WebElement nextPageLink1 = driver.findElement(By.xpath("//a[@ng-click='wizard.go(4)']"));
         nextPageLink1.click();
