@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.support.ui.Select;
 
@@ -167,17 +169,30 @@ public class FitsChromeAutomationTests {
 
         // Field Interview Card page tests
 
+//
+//        if ( !driver.findElement(By.xpath("//input[@ng-model='wizard.report.tattoos']")).isSelected() )
+//        {
+//            driver.findElement(By.id("idOfTheElement")).click();
+//        }
+
+//        List<WebElement> els = driver.findElements(By.xpath("//input[@type='checkbox']"));
+//        for ( WebElement el : els ) {
+//            if ( !el.isSelected() ) {
+//                el.click();
+//            }
+//        }
+
         WebElement checkBoxTattoos = driver.findElement(By.xpath("//input[@ng-model='wizard.report.tattoos']"));
         Actions xAct1 = new Actions(driver);
         xAct1.moveToElement(checkBoxTattoos);
         xAct1.click();
         xAct1.perform();
 
-        WebElement checkBoxScars = driver.findElement(By.xpath("//input[@ng-model='wizard.report.scars']"));
-        Actions xAct2 = new Actions(driver);
-        xAct2.moveToElement(checkBoxScars);
-        xAct2.click();
-        xAct2.perform();
+//        WebElement checkBoxScars = driver.findElement(By.xpath("//input[@ng-model='wizard.report.scars']"));
+//        Actions xAct2 = new Actions(driver);
+//        xAct2.moveToElement(checkBoxScars);
+//        xAct2.click();
+//        xAct2.perform();
 
 //        WebElement checkBoxNeedleMarks = driver.findElement(By.xpath("//input[@ng-model='wizard.report.needleMarks']"));
 //        Actions xAct3 = new Actions(driver);
