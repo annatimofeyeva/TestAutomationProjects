@@ -4,19 +4,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.support.ui.Select;
-
 
 public class FitsChromeAutomationTests {
 
     //System.setProperty("webdriver.chrome.driver", "/home/anya/Desktop/chromedriver");
+
     @Test
     public void FitsChromeAutomationTests() throws InterruptedException {
         WebDriver driver;
@@ -31,10 +26,8 @@ public class FitsChromeAutomationTests {
         // Login
         WebElement emailTextBox = driver.findElement(By.xpath("//input[@id='exampleInputEmail1']"));
         emailTextBox.sendKeys("annatimofeyeva@yandex.ru");
-
         WebElement passwordTextBox = driver.findElement(By.xpath("//input[@id='exampleInputPassword1']"));
         passwordTextBox.sendKeys("curviuscula2011");
-
         WebElement loginButton = driver.findElement(By.xpath("//button[text() = 'Login']"));
         Thread.sleep(2000);
         loginButton.click();
@@ -117,8 +110,6 @@ public class FitsChromeAutomationTests {
         country.click();
         WebElement city = driver.findElement(By.xpath("//input[@ng-model='wizard.report.city']"));
         city.sendKeys("Seattle");
-
-
         // Select from Drop Down
 
         String stateName = "Alabama";
@@ -199,7 +190,6 @@ public class FitsChromeAutomationTests {
                 break;
 
             }
-
         }
 
         // Next page link clicking
@@ -233,6 +223,11 @@ public class FitsChromeAutomationTests {
 
         WebElement nextPageLink = driver.findElement(By.xpath("//*[@ng-show='wizard.active(2)']//a[@ng-click = 'wizard.go(3)']"));
         nextPageLink.click();
+
+//        driver.navigate().back();
+//        Thread.sleep(1000);
+//        driver.navigate().forward();
+//        Thread.sleep(1000);
 
 
         // Field Interview Card page tests
@@ -301,62 +296,33 @@ public class FitsChromeAutomationTests {
         WebElement newState1 = driver.findElement(By.xpath("//select[@ng-model='wizard.report.dlState']"));
         Select newstateOne = new Select(newState1);
         newstateOne.selectByVisibleText(stateFirst);
-
         WebElement otherIDNumber = driver.findElement(By.xpath("//input[@name='other-id']"));
         otherIDNumber.sendKeys("AAAAAAAAAA");
-
-        String countrySecond = "Albania";
+        String countrySecond = "United States";
         WebElement stateObject2 = driver.findElement(By.name("otherIdCountry"));
         Select selectCountry = new Select(stateObject2);
         selectCountry.selectByVisibleText(countrySecond);
 
-        String stateSecond = "Alabama";
-        WebElement newState2 = driver.findElement(By.xpath("//select[@ng-model='wizard.report.dlState']"));
+        // Drop down using Select class:
+        String stateSecond = "Washington";
+        WebElement newState2 = driver.findElement(By.xpath("//select[@ng-show='showOtherIdStatesDropDown']"));
         Select newstateSecond = new Select(newState2);
         newstateSecond.selectByVisibleText(stateSecond);
 
         WebElement otherIDType = driver.findElement(By.xpath("//input[@name='other-id-type']"));
         otherIDType.sendKeys("BBBBBBBB");
+
         WebElement schoolName = driver.findElement(By.xpath("//input[@name='school-name']"));
         schoolName.sendKeys("BHS");
         WebElement schoolAddress = driver.findElement(By.xpath("//input[@name='school-address']"));
         schoolAddress.sendKeys("1st Main street");
         WebElement schoolCity = driver.findElement(By.xpath("//input[@name='school-city']"));
         schoolCity.sendKeys("Bellevue");
+        WebElement schoolState = driver.findElement(By.xpath("//select[@ng-model='wizard.report.schoolState']//option[text()='California']"));
+        schoolState.click();
+        WebElement schoolZip = driver.findElement(By.xpath("//input[@ng-model='wizard.report.schoolZip']"));
+        schoolZip.sendKeys("98004");
 
-        WebElement schoolState = driver.findElement(By.xpath("//select[@ng-model='wizard.report.otherIdState']//option[@value='TX']"));
-        Actions xAct6 = new Actions(driver);
-        xAct6.moveToElement(schoolState);
-        xAct6.click();
-        xAct6.perform();
-
-
-        // state 3
-
-//        WebElement newState3 = driver.findElement(By.xpath("//select[@ng-show='showOtherIdStatesDropDown']//option[text()='Alaska']"));
-//        newState3.click();
-        //select[@ng-show='showOtherIdStatesDropDown']//option[text()='Alaska']
-
-
-//        String newState3  = "Arizona";
-//        //WebElement state = driver.findElement(By.name("state"));
-//        WebElement state3 = driver.findElement(By.xpath("//input[@ng-hide='showStatesDropDown']"));
-//        Select state5 = new Select(driver.findElement(By.name("state3")));
-//        state5.selectByVisibleText(stateName);
-
-//        WebElement newState3 = driver.findElement(By.xpath("//input[@ng-show='showOtherIdStatesDropDown']aska']"));
-//        Actions xAct4 = new Actions(driver);
-//        xAct4.moveToElement(checkBoxTattoos);
-//        xAct4.click();
-//        xAct4.perform();
-//        String stateThird = "Florida";
-//        WebElement newState3 = driver.findElement(By.xpath("//input[@ng-hide='showOtherIdStatesDropDown']"));
-//        Select newstateThird= new Select(newState3);
-//        newstateThird.selectByVisibleText(stateSecond);
-
-
-        WebElement schoolZip = driver.findElement(By.xpath("//input[@name='school-zip']"));
-        schoolAddress.sendKeys("98004");
         WebElement schoolTelephone = driver.findElement(By.xpath("//input[@name='schoolTelephone']"));
         schoolTelephone.sendKeys("4251111111");
 
@@ -367,8 +333,10 @@ public class FitsChromeAutomationTests {
         parentAddress.sendKeys("1st Main street");
         WebElement parentCity = driver.findElement(By.xpath("//input[@name='parent-city']"));
         parentCity.sendKeys("Redmond");
+        WebElement parentState = driver.findElement(By.xpath("//select[@ng-model='wizard.report.parentState']//option[text()='Hawaii']"));
+        parentState.click();
         WebElement parentZip = driver.findElement(By.xpath("//input[@name='parentZip']"));
-        parentZip.sendKeys("Seattle");
+        parentZip.sendKeys("2345678");
         WebElement parentTelephone = driver.findElement(By.xpath("//input[@name='parentTelephone']"));
         parentTelephone.sendKeys("Seattle");
 
@@ -383,19 +351,15 @@ public class FitsChromeAutomationTests {
         employersAddress.sendKeys("1st Main street");
         WebElement employersCity = driver.findElement(By.xpath("//input[@name='employer-city']"));
         employersCity.sendKeys("Seattle");
-
-
-        // state4
-        //
-
+        WebElement employersState = driver.findElement(By.xpath("//select[@ng-model='wizard.report.employerState']//option[text()='California']"));
+        employersState.click();
         WebElement employersZip = driver.findElement(By.xpath("//input[@name='employer-zip']"));
         employersZip.sendKeys("123456");
         WebElement employerTelephone = driver.findElement(By.xpath("//input[@name='employerTelephone']"));
         employerTelephone.sendKeys("34567678");
-        WebElement nextPageLink2 = driver.findElement(By.xpath("//a[@ng-click='wizard.go(5)']"));
-        Actions xAct3 = new Actions(driver);
-        xAct3.moveToElement(nextPageLink2);
-        xAct3.click();
-        xAct3.perform();
+        WebElement nextPageLink3 = driver.findElement(By.xpath("//*[@ng-show='wizard.active(4)']//a[@ng-click = 'wizard.go(5)']"));
+        nextPageLink3.click();
+
+
     } // end of method
 } // end of class
