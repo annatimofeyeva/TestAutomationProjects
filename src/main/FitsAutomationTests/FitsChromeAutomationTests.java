@@ -237,12 +237,6 @@ public class FitsChromeAutomationTests {
 
         // Field Interview Card page tests
 
-//
-//        if ( !driver.findElement(By.xpath("//input[@ng-model='wizard.report.tattoos']")).isSelected() )
-//        {
-//            driver.findElement(By.id("idOfTheElement")).click();
-//        }
-
         // all checkboxes are selected:
 
 //        List<WebElement> els = driver.findElements(By.xpath("//input[@type='checkbox']"));
@@ -258,17 +252,37 @@ public class FitsChromeAutomationTests {
             if (!e.isSelected()) {
                 interviewCardcheckbx.get(0).click();
                 break;
+
             }
         }
         WebElement tatoosData = driver.findElement(By.xpath("//input[@name='Tattoos']"));
-        tatoosData.sendKeys("Test");
+        tatoosData.sendKeys("Test1");
 
-//        WebElement checkBoxScars = driver.findElement(By.xpath("//input[@ng-model='wizard.report.scars']"));
-//        Actions xAct2 = new Actions(driver);
-//        xAct2.moveToElement(checkBoxScars);
-//        xAct2.click();
-//        xAct2.perform();
 
+        WebElement scarsCheck = driver.findElement(By.xpath("//input[@ng-model='wizard.report.scars']"));
+        scarsCheck.click();
+        WebElement scarsData = driver.findElement(By.xpath("//input[@name='Scars']"));
+        scarsData.sendKeys("Test2");
+        WebElement needleMarksCheck = driver.findElement(By.xpath("//input[@ng-model='wizard.report.needleMarks']"));
+        needleMarksCheck.click();
+        WebElement needleMarksData = driver.findElement(By.xpath("//input[@name = 'needleMarks']"));
+        needleMarksData.sendKeys("Test3");
+        WebElement tracks = driver.findElement(By.xpath("//input[@ng-model='wizard.report.tracks']"));
+        tracks.click();
+        WebElement tracksData = driver.findElement(By.xpath("//input[@name = 'Tracks']"));
+        tracksData.sendKeys("Test4");
+        WebElement glasses = driver.findElement(By.xpath("//input[@ng-model='wizard.report.glasses']"));
+        glasses.click();
+        WebElement glassesData = driver.findElement(By.xpath("//input[@name = 'Glasses']"));
+        glassesData.sendKeys("Test5");
+        WebElement mustache = driver.findElement(By.xpath("//input[@ng-model='wizard.report.mustache']"));
+        mustache.click();
+        WebElement mustacheData = driver.findElement(By.xpath("//input[@name = 'Mustache']"));
+        mustacheData.sendKeys("Test6");
+        WebElement beard = driver.findElement(By.xpath("//input[@ng-model='wizard.report.beard']"));
+        beard.click();
+        WebElement beardData = driver.findElement(By.xpath("//input[@name = 'Beard']"));
+        beardData.sendKeys("Test7");
 
 
         WebElement nextPageLink1 = driver.findElement(By.xpath("//a[@ng-click='wizard.go(4)']"));
