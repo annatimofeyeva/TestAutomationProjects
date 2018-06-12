@@ -4,7 +4,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+//import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.support.ui.Select;
 
@@ -52,7 +57,6 @@ public class FitsChromeAutomationTests {
         WebElement lab3RadioBnt = driver.findElement(By.xpath("//label[text() = 'Lab3']"));
         lab3RadioBnt.click();
         Thread.sleep(2000);
-
 
         // Subject Information icon
 
@@ -290,8 +294,7 @@ public class FitsChromeAutomationTests {
         WebElement driverLicense = driver.findElement(By.xpath("//input[@name='driverLicense']"));
         driverLicense.sendKeys("AAA");
 
-        // Select from drop down
-
+        // Drop down using Select class:
         String stateFirst = "Alabama";
         WebElement newState1 = driver.findElement(By.xpath("//select[@ng-model='wizard.report.dlState']"));
         Select newstateOne = new Select(newState1);
@@ -338,10 +341,7 @@ public class FitsChromeAutomationTests {
         WebElement parentZip = driver.findElement(By.xpath("//input[@name='parentZip']"));
         parentZip.sendKeys("2345678");
         WebElement parentTelephone = driver.findElement(By.xpath("//input[@name='parentTelephone']"));
-        parentTelephone.sendKeys("Seattle");
-
-        // state 4
-        //WebElement name = driver.findElement(By.xpath(""));
+        parentTelephone.sendKeys("425444666");
 
         WebElement subjectOccupation = driver.findElement(By.xpath("//input[@name='occupation']"));
         subjectOccupation.sendKeys("teacher");
@@ -360,6 +360,62 @@ public class FitsChromeAutomationTests {
         WebElement nextPageLink3 = driver.findElement(By.xpath("//*[@ng-show='wizard.active(4)']//a[@ng-click = 'wizard.go(5)']"));
         nextPageLink3.click();
 
+        // Distribution page
+        // isSelected() method is used to know whether the Checkbox is toggled on or off.
+
+
+        List<WebElement> options = driver.findElements(By.xpath("//input[@ng-model='wizard.report.gangUnit']")) ;
+        Random random = new Random();
+        int index = random.nextInt(options.size());
+        options.get(index).click();
+
+
+
+
+
+
+
+
+//
+//        List<WebElement> Distributioncheckbx = driver.findElements(By.xpath("//input[@type='checkbox']"));
+//        for (WebElement e : Distributioncheckbx ) {
+//            if (!e.isSelected()) {
+//                Distributioncheckbx.get(0).click();
+//                break;
+//
+//            }
+//        }
+
+        WebElement nextPageLink4 = driver.findElement(By.xpath("//*[@ng-show='wizard.active(5)']//a[@ng-click = 'wizard.go(6)']"));
+        nextPageLink4.click();
+
+        WebElement nextPageLink5 = driver.findElement(By.xpath("//*[@ng-show='wizard.active(6)']//a[@ng-click = 'wizard.go(7)']"));
+        nextPageLink5.click();
+
+        //Vechicle
+
+        WebElement vehicleLicense = driver.findElement(By.xpath("//input[@name='vehicleLicense']"));
+        vehicleLicense.sendKeys("AAAA");
+        WebElement vehicleMake = driver.findElement(By.xpath("//input[@name='vehicleMake']"));
+        vehicleMake.sendKeys("BBBB");
+        WebElement vehicleModel = driver.findElement(By.xpath("//input[@name='vehicleModel']"));
+        vehicleModel.sendKeys("CCCC");
+        WebElement vehicleBodystyle = driver.findElement(By.xpath("//input[@name='vehicleBodystyle']"));
+        vehicleBodystyle.sendKeys("DDDD");
+        WebElement vehicleYear = driver.findElement(By.xpath("//input[@name='vehicleYear']"));
+        vehicleYear.sendKeys("2016");
+        WebElement vehicleColor = driver.findElement(By.xpath("//input[@name='vehicleColor']"));
+        vehicleColor.sendKeys("Red");
+        WebElement vehicleState = driver.findElement(By.xpath("//select[@ng-model='wizard.report.vehicleState']//option[@value='AK']"));
+        vehicleState.click();
+        WebElement vehicleOddities = driver.findElement(By.xpath("//input[@name='vehicleOddities']"));
+        vehicleOddities.sendKeys("EEEE");
+
+//        WebElement image = driver.findElement(By.xpath("//button[@ngf-select]"));
+//        image.click();
+
+        // to what element sendKeys()?
+        //image.sendKeys("//home/anya/Desktop/Fits1.png");
 
     } // end of method
 } // end of class
