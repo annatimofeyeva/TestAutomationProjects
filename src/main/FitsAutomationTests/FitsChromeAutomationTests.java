@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 //import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.support.ui.Select;
 
 public class FitsChromeAutomationTests {
@@ -227,6 +229,7 @@ public class FitsChromeAutomationTests {
 
         WebElement nextPageLink = driver.findElement(By.xpath("//*[@ng-show='wizard.active(2)']//a[@ng-click = 'wizard.go(3)']"));
         nextPageLink.click();
+        Thread.sleep(2000);
 
 //        driver.navigate().back();
 //        Thread.sleep(1000);
@@ -256,8 +259,6 @@ public class FitsChromeAutomationTests {
         }
         WebElement tatoosData = driver.findElement(By.xpath("//input[@name='Tattoos']"));
         tatoosData.sendKeys("Test1");
-
-
         WebElement scarsCheck = driver.findElement(By.xpath("//input[@ng-model='wizard.report.scars']"));
         scarsCheck.click();
         WebElement scarsData = driver.findElement(By.xpath("//input[@name='Scars']"));
@@ -325,7 +326,6 @@ public class FitsChromeAutomationTests {
         schoolState.click();
         WebElement schoolZip = driver.findElement(By.xpath("//input[@ng-model='wizard.report.schoolZip']"));
         schoolZip.sendKeys("98004");
-
         WebElement schoolTelephone = driver.findElement(By.xpath("//input[@name='schoolTelephone']"));
         schoolTelephone.sendKeys("4251111111");
 
@@ -357,26 +357,20 @@ public class FitsChromeAutomationTests {
         employersZip.sendKeys("123456");
         WebElement employerTelephone = driver.findElement(By.xpath("//input[@name='employerTelephone']"));
         employerTelephone.sendKeys("34567678");
+
         WebElement nextPageLink3 = driver.findElement(By.xpath("//*[@ng-show='wizard.active(4)']//a[@ng-click = 'wizard.go(5)']"));
         nextPageLink3.click();
+        Thread.sleep(2000);
 
         // Distribution page
         // isSelected() method is used to know whether the Checkbox is toggled on or off.
 
 
-        List<WebElement> options = driver.findElements(By.xpath("//input[@ng-model='wizard.report.gangUnit']")) ;
+        List<WebElement> options = driver.findElements(By.xpath("//input[@ng-model='wizard.report.gangUnit']"));
         Random random = new Random();
         int index = random.nextInt(options.size());
         options.get(index).click();
 
-
-
-
-
-
-
-
-//
 //        List<WebElement> Distributioncheckbx = driver.findElements(By.xpath("//input[@type='checkbox']"));
 //        for (WebElement e : Distributioncheckbx ) {
 //            if (!e.isSelected()) {
@@ -388,9 +382,8 @@ public class FitsChromeAutomationTests {
 
         WebElement nextPageLink4 = driver.findElement(By.xpath("//*[@ng-show='wizard.active(5)']//a[@ng-click = 'wizard.go(6)']"));
         nextPageLink4.click();
+        Thread.sleep(2000);
 
-        WebElement nextPageLink5 = driver.findElement(By.xpath("//*[@ng-show='wizard.active(6)']//a[@ng-click = 'wizard.go(7)']"));
-        nextPageLink5.click();
 
         //Vechicle
 
@@ -411,11 +404,39 @@ public class FitsChromeAutomationTests {
         WebElement vehicleOddities = driver.findElement(By.xpath("//input[@name='vehicleOddities']"));
         vehicleOddities.sendKeys("EEEE");
 
+        WebElement nextPageLink5 = driver.findElement(By.xpath("//*[@ng-show='wizard.active(6)']//a[@ng-click = 'wizard.go(7)']"));
+        nextPageLink5.click();
+        Thread.sleep(2000);
+
+
 //        WebElement image = driver.findElement(By.xpath("//button[@ngf-select]"));
 //        image.click();
+//        Thread.sleep(4000);
+//        image.sendKeys("/home/anya/Desktop/Fits1.png");
+//        Thread.sleep(4000);
 
-        // to what element sendKeys()?
-        //image.sendKeys("//home/anya/Desktop/Fits1.png");
+
+        /*The browser cannot upload a file without an <input> element,
+        unless the file is dropped from the desktop. It would be a security breach to be able
+        to upload a file by code. So in your case, the<input> is probably created once the user
+        has clicked the link. One way to handle this case is to silence the click event, click
+        the link and then set the file to the <input>:
+        */
+
+        // disable the click event on an `<input>` file
+        ((JavascriptExecutor) driver).executeScript(
+                "HTMLInputElement.prototype.click = function() {                     " +
+                        "  if(this.type !== 'file') HTMLElement.prototype.click.call(this);  " +
+                        "};                                                                  ");
+
+        // trigger the upload
+        WebElement image = driver.findElement(By.xpath("//button[@ngf-select]"));
+        image.click();
+
+// assign the file to the `<input>`
+        driver.findElement(By.cssSelector("input[type=file]"))
+                .sendKeys("/home/anya/Desktop/Fits1.png");
+
 
     } // end of method
 } // end of class
