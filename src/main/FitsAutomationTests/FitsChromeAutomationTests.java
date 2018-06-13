@@ -112,8 +112,23 @@ public class FitsChromeAutomationTests {
         primaryLanguage.sendKeys("English");
         WebElement streetAddress = driver.findElement(By.xpath(" //input[@ng-model = 'wizard.report.streetAddress']"));
         streetAddress.sendKeys("1st Main street");
-        WebElement country = driver.findElement(By.xpath(" //select[@ng-model='wizard.report.country']//option[text() = 'United States']"));
-        country.click();
+
+        // Drop Down elements with List
+
+        List<WebElement> countrylist = driver.findElements(By.xpath("//select[@ng-model='wizard.report.country']/option"));
+        for(WebElement country : countrylist) {
+            String countryName = country.getText();
+            Thread.sleep(2000);
+            //System.out.println(country.getText()); -OK
+            //System.out.println(country); - OK
+            if(countryName.equals("Albania")){
+              country.click();
+            System.out.println("OK");
+           }
+        }
+//        WebElement country = driver.findElement(By.xpath(" //select[@ng-model='wizard.report.country']//option[text() = 'United States']"));
+//        country.click();
+
         WebElement city = driver.findElement(By.xpath("//input[@ng-model='wizard.report.city']"));
         city.sendKeys("Seattle");
         // Select from Drop Down
@@ -379,6 +394,22 @@ public class FitsChromeAutomationTests {
 //
 //            }
 //        }
+
+        WebElement other_distribution = driver.findElement(By.xpath("//input[@ng-model='wizard.report.other']"));
+        other_distribution.click();
+
+        WebElement reasonForStop = driver.findElement(By.xpath("//input[@name='reasonForStop']"));
+        reasonForStop.sendKeys("Some reason");
+        WebElement locationOfStop = driver.findElement(By.xpath("//input[@name='locationOfStop']"));
+        locationOfStop.sendKeys("Some location");
+        WebElement DispositionOfStop = driver.findElement(By.xpath("//input[@name='dispositionOfStop']"));
+        DispositionOfStop.sendKeys("Some disposition");
+
+        WebElement gangName = driver.findElement(By.xpath("//input[@name='gang-name']"));
+        gangName.sendKeys("Some gang-name");
+
+        WebElement howLong = driver.findElement(By.xpath("//input[@name='howLong']"));
+        howLong.sendKeys("How long");
 
         WebElement nextPageLink4 = driver.findElement(By.xpath("//*[@ng-show='wizard.active(5)']//a[@ng-click = 'wizard.go(6)']"));
         nextPageLink4.click();
