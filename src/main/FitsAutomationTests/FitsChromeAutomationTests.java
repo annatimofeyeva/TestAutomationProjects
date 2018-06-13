@@ -114,20 +114,21 @@ public class FitsChromeAutomationTests {
         streetAddress.sendKeys("1st Main street");
 
         // Drop Down elements with List
+//
+//        List<WebElement> countrylist = driver.findElements(By.xpath("//select[@ng-model='wizard.report.country']/option"));
+//        for(WebElement country : countrylist) {
+//            String countryName = country.getText();
+//            Thread.sleep(2000);
+//            //System.out.println(country.getText()); -OK
+//            //System.out.println(country); - OK
+//            if(countryName.equals("Albania")){
+//              country.click();
+//            System.out.println("OK");
+//           }
+//        }
 
-        List<WebElement> countrylist = driver.findElements(By.xpath("//select[@ng-model='wizard.report.country']/option"));
-        for(WebElement country : countrylist) {
-            String countryName = country.getText();
-            Thread.sleep(2000);
-            //System.out.println(country.getText()); -OK
-            //System.out.println(country); - OK
-            if(countryName.equals("Albania")){
-              country.click();
-            System.out.println("OK");
-           }
-        }
-//        WebElement country = driver.findElement(By.xpath(" //select[@ng-model='wizard.report.country']//option[text() = 'United States']"));
-//        country.click();
+        WebElement country = driver.findElement(By.xpath(" //select[@ng-model='wizard.report.country']//option[text() = 'United States']"));
+        country.click();
 
         WebElement city = driver.findElement(By.xpath("//input[@ng-model='wizard.report.city']"));
         city.sendKeys("Seattle");
@@ -380,8 +381,8 @@ public class FitsChromeAutomationTests {
         // Distribution page
         // isSelected() method is used to know whether the Checkbox is toggled on or off.
 
-
-        List<WebElement> options = driver.findElements(By.xpath("//input[@ng-model='wizard.report.gangUnit']"));
+//        List<WebElement> options = driver.findElements(By.xpath("//input[@type='checkbox']"));
+       List<WebElement> options = driver.findElements(By.xpath("//input[@ng-model='wizard.report.gangUnit']"));
         Random random = new Random();
         int index = random.nextInt(options.size());
         options.get(index).click();
