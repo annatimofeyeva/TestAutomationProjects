@@ -1,7 +1,11 @@
 import org.openqa.selenium.By;
+//import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -26,8 +30,16 @@ public class TestNGChromeFitsAutomation {
 
     @Test (groups= {"functional", "UI"} )
     public void testLogin() throws InterruptedException {
-        WebElement emailTextBox = driver.findElement(By.xpath("//input[@id='exampleInputEmail1']"));
-        emailTextBox.sendKeys("annatimofeyeva@yandex.ru");
+
+        // Explicit Wait:
+
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+
+        // specific to an element
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='exampleInputEmail1']")))
+                .sendKeys("annatimofeyeva@yandex.ru");
+
         WebElement passwordTextBox = driver.findElement(By.xpath("//input[@id='exampleInputPassword1']"));
         passwordTextBox.sendKeys("curviuscula2011");
         WebElement loginButton = driver.findElement(By.xpath("//button[text() = 'Login']"));
@@ -47,8 +59,12 @@ public class TestNGChromeFitsAutomation {
     }
 
 
-   @AfterTest
+   @AfterTest(enabled=false)
     public void closeBroser() {
         driver.quit();
    }
 } // end of class
+
+// Xpaths for needle marks
+// label[text()='Needle Marks']/..//span[@class='fa fa-check'] - Check box (edited)
+// label[text()='Needle Marks']/..//input[@name='needleMarks'] - Text Box (edited)
