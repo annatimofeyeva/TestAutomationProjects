@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -381,8 +382,8 @@ public class FitsChromeAutomationTests {
         // Distribution page
         // isSelected() method is used to know whether the Checkbox is toggled on or off.
 
-//        List<WebElement> options = driver.findElements(By.xpath("//input[@type='checkbox']"));
-       List<WebElement> options = driver.findElements(By.xpath("//input[@ng-model='wizard.report.gangUnit']"));
+        List<WebElement> options = driver.findElements(By.xpath("//input[@class='needsclick ng-pristine ng-untouched ng-valid ng-empty']"));
+//      List<WebElement> options = driver.findElements(By.xpath("//input[@ng-model='wizard.report.gangUnit']"));
         Random random = new Random();
         int index = random.nextInt(options.size());
         options.get(index).click();
