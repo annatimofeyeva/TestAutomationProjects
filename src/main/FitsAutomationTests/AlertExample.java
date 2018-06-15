@@ -32,7 +32,7 @@ public class AlertExample {
 
         System.out.println("Hi");
 
-        WebDriverWait wait = new WebDriverWait(driver, 110);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@onclick='myFunction()']"))).click();
 
         //WebElement alertClickButton = driver.findElement(By.xpath("/html/body/button"));

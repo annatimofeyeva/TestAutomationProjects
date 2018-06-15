@@ -3,33 +3,82 @@ import java.util.Arrays;
 public class JavaArrayExercises {
     public static void main(String[] args) {
 
-        //Write a Java program to sum values of an array.
+        // calculate sum
+        int[] myIntArray = new int[5];
+        myIntArray[0] = 2;
+        myIntArray[1] = 2;
+        myIntArray[2] = 2;
+        myIntArray[3] = 2;
+        myIntArray[4] = 2;
 
-        int[] myArray = {1, 2, 3, 4, 5};
         int sum = 0;
-        for (int i : myArray)
-            sum += i;
-        System.out.println("Sum of integers in the first array is: " + sum);
 
-        int[] secondInt = {2, 4, 6, 8, 10};
-        int sumOne = 0;
-        for (int i : secondInt)
-            sumOne = sumOne + i;
-        System.out.println("Sum of integers in the second array is: " + sumOne);
+        for (int e : myIntArray) {
+            sum += e;
+        }
+        System.out.println("Sum of all array's integers equals : " + sum);
 
-        Double[] myDouble = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
-        double myDoubleSum = 0;
-        for (double i : myDouble) {
-            myDoubleSum += i;
-            if (i > 5) {
-                System.out.println("Sum of doubles in the first array is: " + myDoubleSum);
+        //fill array with numbers
+
+        int[] nums = new int[10];
+            for(int i = 0; i < nums.length; i++) {
+                nums[i] = i + 1;
             }
+            // if without Arrays class - we will receive the objects
+        Arrays.toString(nums);
+        System.out.println("Int array: " + Arrays.toString(nums));
+
+        // sort
+
+        double[] doubleNums = {5.0, 4.0, 1.0};
+
+        Arrays.sort(doubleNums);
+        for(int i = 0; i < doubleNums.length; i++) {
+            System.out.println(doubleNums[i]);
         }
 
-        Double[] second = {2.0, 4.0, 6.0, 8.0};
-        double result = 0.0;
-        for (double i : second)
-            result += i;
-        System.out.println("Sum of doubles in the second array is: " + result);
+        // Write a Java program to print the following grid
+
+        String [] myString= new String[10];
+
+        for(int i = 0; i < myString.length; i++){
+            myString[i] = String.valueOf(i + 1);
+        }
+        System.out.println(Arrays.toString(myString));
+
+        int[][] a = new int[10][10];
+
+        for(int i = 0; i< 10; i++){
+            for(int j = 0; j< 10; j++) {
+                System.out.printf("%2d ", a[i][j]);
+            }
+            System.out.println();
+        }
+        // Write a Java program to calculate the average value of array elements
+        int[] myIntarray = new int[5];
+            for(int i = 0; i < myIntArray.length; i++) {
+                myIntArray[i] = i + 1;
+            }
+
+        System.out.println(Arrays.toString(myIntArray));
+            int arrsum = 0;
+
+            for(int i = 0; i < myIntArray.length; i++){
+                arrsum = arrsum + myIntarray[i];
+            }
+            double average = sum/myIntArray.length;
+        System.out.println("Average int in array: " + average);
+
+        //Write a Java program to find the index of an array element
+
+
+
+
+
+
+
+
+
+
     } // end of main
 } // end of class
